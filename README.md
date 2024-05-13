@@ -11,7 +11,7 @@ A [rollup.js](https://rollupjs.org) plugin that inserts hash values based on the
 
 ## Features
 
-- Generates hash values based on pre-bundled source code (not bundle code)
+- Generates hash values based on pre-bundled source code
 - Inserts hash values in bundle code and filenames
 - Supports custom placeholders
 - Deletes outdated bundles on each build (optional)
@@ -21,7 +21,8 @@ A [rollup.js](https://rollupjs.org) plugin that inserts hash values based on the
 Rollup's built-in [`[hash]`](https://rollupjs.org/configuration-options/#output-entryfilenames) naming option and various hash-related [plugins](https://github.com/phamann/rollup-plugin-hash) generate hash values based on the bundled output. This means bundles created from the same source using different configurations (output format, transpilation, minification, comments, etc.) will generate different hash values:
 
 ```shell
-# Same source + different options = different hash
+# Node [hash] and other plugins
+# Same source code, different hash for each file
 bundle-52c87809.cjs
 bundle-ddc4fb06.js
 bundle-8023f40c.min.js
@@ -31,14 +32,15 @@ bundle-c463f6f8.mjs
 This plugin generates hash values based on the source code _before_ Rollup has completed its bundling process. As a result, bundles created from the same source code will generate the same hash value regardless of the rollup configuration used to create them. This hash value serves as a build ID, easily identifying all bundles generated from the same source code:
 
 ```shell
-# Same source + different options = same hash
+# This plugin
+# Same source code, same hash for each file
 bundle-52c87809.cjs
 bundle-52c87809.js
 bundle-52c87809.min.js
 bundle-52c87809.mjs
 ```
 
-This plugin can also inject the hash value it generates into the bundled output:
+This plugin can also inject a generated hash value into the bundled output:
 
 ```js
 // Source
@@ -111,7 +113,7 @@ sourceHash({
 });
 ```
 
-The plugin will search for previous builds in the same output directory and match files based on the name pattern and the hash value length. For example, if a name pattern of `"bundle-[sourcehash].js"` is used to generate a new bundle named `bundle-52c87809.js`, all files that start with `bundle-`, contain an eight character hash value, and end with `.js` will be deleted.
+The plugin will search for previous builds in the same output directory and match files based on the name pattern and the hash value length. For example, if a name pattern of `"bundle-[sourcehash].js"` is used to generate a new bundle named `bundle-52c87809.js`, all files that start with `bundle-` followed by an eight character alphanumeric value and end with `.js` will be deleted.
 
 ```js
 // Rollup configuration
@@ -126,7 +128,7 @@ bundle-52c87809.js
 ```
 
 ```shell
-# These files will be deleted
+# These files will be deleted (match name pattern and hash length)
 bundle-ddc4fb06.js
 bundle-8023f40c.js
 bundle-c463f6f8.js
@@ -167,7 +169,7 @@ sourceHash({
 - Type: `array|string`
 - Default: `["shake256", { outputLength: 3 }]`
 
-The bundle file name placeholder string to replace with the generated hash value.
+The arguments to pass to Node's [crypto.createHash](https://nodejs.org/api/crypto.html#cryptocreatehashalgorithm-options) method.
 
 ```js
 // Array
@@ -180,6 +182,12 @@ sourceHash({
   hashArgs: 'md5'
 });
 ```
+
+From the Node.js [createHash](https://nodejs.org/api/crypto.html#cryptocreatehashalgorithm-options) documentation:
+
+> The `algorithm` is dependent on the available algorithms supported by the version of OpenSSL on the platform. Examples are `'sha256'`, `'sha512'`, etc. On recent releases of OpenSSL, `openssl list -digest-algorithms` will display the available digest algorithms.
+>
+> For XOF hash functions such as `'shake256'`, the `outputLength` option can be used to specify the desired output length in bytes.
 
 ## Sponsorship
 
