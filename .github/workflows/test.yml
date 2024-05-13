@@ -27,6 +27,7 @@ jobs:
         run: npm test
 
       - name: Report code coverage
+        if: matrix.os == 'ubuntu-latest'
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
