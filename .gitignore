@@ -5,6 +5,7 @@ tests/_tmp
 
 # Files
 *.log
+lcov.info
 
 # OS
 ._*
