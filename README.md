@@ -42,7 +42,7 @@ This plugin can also inject the hash value it generates into the bundled output:
 
 ```js
 // Source
-const hash = '__HASH__'; // Default
+const hash = '__SOURCEHASH__'; // Default
 ```
 
 ```js
@@ -88,7 +88,7 @@ All [codePlaceholders](#codeplaceholder) will be replaced with the generated sou
 
 ```js
 // File: main.js
-const hash = 'My hash is __HASH__';
+const hash = 'My hash is __SOURCEHASH__';
 ```
 
 ```js
