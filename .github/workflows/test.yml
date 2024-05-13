@@ -1,10 +1,10 @@
-name: 'Build'
+name: 'Test'
 
 on: [push, pull_request]
 
 jobs:
   build:
-    name: Build (${{ matrix.os }})
+    name: Test (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
