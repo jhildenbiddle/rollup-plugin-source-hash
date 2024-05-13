@@ -25,6 +25,9 @@
   ],
   "type": "module",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=20.13.0"
+  },
   "lint-staged": {
     "*.{j,t}s{x}, {c,m}js, json, html, {s}css": [
       "eslint",
