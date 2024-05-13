@@ -1,10 +1,10 @@
 # rollup-plugin-source-hash
 
 [![NPM](https://img.shields.io/npm/v/rollup-plugin-source-hash.svg?style=flat-square)](https://www.npmjs.com/package/rollup-plugin-source-hash)
-[![GitHub Workflow Status (master)](https://img.shields.io/github/actions/workflow/status/jhildenbiddle/rollup-plugin-source-hash/test.yml?branch=master&label=checks&style=flat-square)](https://github.com/jhildenbiddle/rollup-plugin-source-hash/actions?query=branch%3Amaster+)
-[![Codacy code quality](https://img.shields.io/codacy/grade/c39af90445e7478d80fd796d12947495/master?style=flat-square)](https://app.codacy.com/gh/jhildenbiddle/rollup-plugin-source-hash/dashboard?branch=master)
-[![Codacy branch coverage](https://img.shields.io/codacy/coverage/c39af90445e7478d80fd796d12947495/master?style=flat-square)](https://app.codacy.com/gh/jhildenbiddle/rollup-plugin-source-hash/dashboard?branch=master)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/jhildenbiddle/rollup-plugin-source-hash/blob/master/LICENSE)
+[![GitHub Workflow Status (main)](https://img.shields.io/github/actions/workflow/status/jhildenbiddle/rollup-plugin-source-hash/test.yml?branch=main&label=checks&style=flat-square)](https://github.com/jhildenbiddle/rollup-plugin-source-hash/actions?query=branch%3Amain+)
+[![Codacy code quality](https://img.shields.io/codacy/grade/d3ea7fdae22f46fe855d5c2435b03e2a/main?style=flat-square)](https://app.codacy.com/gh/jhildenbiddle/rollup-plugin-source-hash/dashboard?branch=main)
+[![Codacy branch coverage](https://img.shields.io/codacy/coverage/d3ea7fdae22f46fe855d5c2435b03e2a/main?style=flat-square)](https://app.codacy.com/gh/jhildenbiddle/rollup-plugin-source-hash/dashboard?branch=main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/jhildenbiddle/rollup-plugin-source-hash/blob/main/LICENSE)
 [![Sponsor this project](https://img.shields.io/static/v1?style=flat-square&label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/jhildenbiddle)
 
 A [rollup.js](https://rollupjs.org) plugin that inserts hash values based on the pre-bundled source code into a bundle's code and/or filename.
@@ -198,6 +198,6 @@ Thank you! 🙏🏻
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/jhildenbiddle/rollup-plugin-source-hash/blob/master/LICENSE) for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/jhildenbiddle/rollup-plugin-source-hash/blob/main/LICENSE) for details.
 
 Copyright (c) John Hildenbiddle ([@jhildenbiddle](https://twitter.com/jhildenbiddle))
