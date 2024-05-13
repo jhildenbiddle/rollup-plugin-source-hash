@@ -1,0 +1,57 @@
+{
+  "name": "rollup-plugin-source-hash",
+  "version": "0.0.0",
+  "description": "A rollup.js plugin that inserts a hash value based on the source code into a bundle's code and/or filename.",
+  "author": "John Hildenbiddle <http://hildenbiddle.com>",
+  "license": "MIT",
+  "homepage": "https://jhildenbiddle.github.io/rollup-plugin-source-hash",
+  "repository": {
+    "type": "git",
+    "url": "git+https://jhildenbiddle@github.com/jhildenbiddle/rollup-plugin-source-hash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jhildenbiddle/rollup-plugin-source-hash/issues"
+  },
+  "keywords": [
+    "code",
+    "hash",
+    "plugin",
+    "rollup-plugin",
+    "rollup",
+    "source"
+  ],
+  "files": [
+    "src"
+  ],
+  "type": "module",
+  "main": "src/index.js",
+  "lint-staged": {
+    "*.{j,t}s{x}, {c,m}js, json, html, {s}css": [
+      "eslint",
+      "prettier --write"
+    ],
+    "*.md": [
+      "markdownlint"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "eslint": "^9.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.2.0",
+    "husky": "^9.0.10",
+    "lint-staged": "^15.2.2",
+    "markdownlint-cli": "^0.40.0",
+    "prettier": "^3.2.5",
+    "rollup": "^4.12.0"
+  },
+  "scripts": {
+    "lint:fix": "prettier . --write && eslint . --fix",
+    "lint": "prettier . --check && eslint . && markdownlint *.md",
+    "postinstall": "husky init",
+    "prepare": "husky",
+    "start": "echo 'No start script defined'",
+    "test": "node --test",
+    "version": "npm run lint && npm run test"
+  }
+}

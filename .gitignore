@@ -1,0 +1,12 @@
+# Folders
+dist
+node_modules
+tests/_tmp
+
+# Files
+*.log
+
+# OS
+._*
+.cache
+.DS_Store
