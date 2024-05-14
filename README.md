@@ -23,10 +23,10 @@ Rollup's built-in [`[hash]`](https://rollupjs.org/configuration-options/#output-
 ```shell
 # Node [hash] and other plugins
 # Same source code, different hash for each file
-bundle-52c87809.cjs
-bundle-ddc4fb06.js
-bundle-8023f40c.min.js
-bundle-c463f6f8.mjs
+bundle-742cd4.cjs
+bundle-ddc4fb.js
+bundle-8023f4.min.js
+bundle-c463f6.mjs
 ```
 
 This plugin generates hash values based on the source code _before_ Rollup has completed its bundling process. As a result, bundles created from the same source code will generate the same hash value regardless of the rollup configuration used to create them. This hash value serves as a build ID, easily identifying all bundles generated from the same source code:
@@ -34,10 +34,10 @@ This plugin generates hash values based on the source code _before_ Rollup has c
 ```shell
 # This plugin
 # Same source code, same hash for each file
-bundle-52c87809.cjs
-bundle-52c87809.js
-bundle-52c87809.min.js
-bundle-52c87809.mjs
+bundle-742cd4.cjs
+bundle-742cd4.js
+bundle-742cd4.min.js
+bundle-742cd4.mjs
 ```
 
 This plugin can also inject a generated hash value into the bundled output:
@@ -49,7 +49,7 @@ const hash = '__SOURCEHASH__'; // Default
 
 ```js
 // Bundle output
-const hash = 'ddc4fb06';
+const hash = 'ddc4fb';
 ```
 
 ## Installation
@@ -83,7 +83,7 @@ The [filePlaceholder](#fileplaceholder) value will be replaced with the generate
 
 ```shell
 # Bundle file
-bundle-52c87809.js
+bundle-742cd4.js
 ```
 
 All [codePlaceholders](#codeplaceholder) will be replaced with the generated source hash:
@@ -94,8 +94,8 @@ const hash = 'My hash is __SOURCEHASH__';
 ```
 
 ```js
-// File: bundle-52c87809.js
-const hash = 'My hash is 52c87809';
+// File: bundle-742cd4.js
+const hash = 'My hash is 742cd4';
 ```
 
 ## Options
@@ -113,7 +113,7 @@ sourceHash({
 });
 ```
 
-The plugin will search for previous builds in the same output directory and match files based on the name pattern and the hash value length. For example, if a name pattern of `"bundle-[sourcehash].js"` is used to generate a new bundle named `bundle-52c87809.js`, all files that start with `bundle-` followed by an eight character alphanumeric value and end with `.js` will be deleted.
+The plugin will search for previous builds in the same output directory and match files based on the name pattern and the hash value length. For example, if a name pattern of `"bundle-[sourcehash].js"` is used to generate a new bundle named `bundle-742cd4.js`, all files that start with `bundle-`, are followed by an eight character alphanumeric value, and end with `.js` will be deleted.
 
 ```js
 // Rollup configuration
@@ -124,14 +124,14 @@ output: {
 
 ```shell
 # Bundle file
-bundle-52c87809.js
+bundle-742cd4.js
 ```
 
 ```shell
 # These files will be deleted (match name pattern and hash length)
-bundle-ddc4fb06.js
-bundle-8023f40c.js
-bundle-c463f6f8.js
+bundle-ddc4fb.js
+bundle-8023f4.js
+bundle-c463f6.js
 
 # These files will not be deleted
 bundle.js
