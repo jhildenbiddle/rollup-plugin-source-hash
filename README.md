@@ -21,7 +21,7 @@ A [rollup.js](https://rollupjs.org) plugin that inserts hash values based on the
 Rollup's built-in [`[hash]`](https://rollupjs.org/configuration-options/#output-entryfilenames) naming option and various hash-related [plugins](https://github.com/phamann/rollup-plugin-hash) generate hash values based on the bundled output. This means bundles created from the same source that use different rollup configurations (output format, transpilation, minification, comments, etc.) will generate different hash values:
 
 ```shell
-# Node [hash] and other plugins
+# Rollup [hash] and other plugins
 # Same source code, different hash for each file
 bundle-742cd4.cjs
 bundle-ddc4fb.js
