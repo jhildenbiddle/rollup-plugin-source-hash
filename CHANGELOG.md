@@ -2,6 +2,6 @@
 
 ## 1.0.0
 
-_TBD_
+_2024-05-14_
 
 - Initial release

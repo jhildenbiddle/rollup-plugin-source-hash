@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-source-hash",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A rollup.js plugin that inserts hash values based on the pre-bundled source code into a bundle's code and/or filename.",
   "author": "John Hildenbiddle <http://hildenbiddle.com>",
   "license": "MIT",
