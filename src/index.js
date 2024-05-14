@@ -4,7 +4,7 @@ import path from 'node:path';
 import defaults from './defaults.js';
 
 /**
- * TEST STRINGS (see: /src/index.js)
+ * TEST STRINGS (see: /tests/index.test.js)
  * ============================================================================
  * TestDefaultPlaceholder: __SOURCEHASH__
  * TestCustomPlaceholder: __CUSTOM_PLACEHOLDER__
