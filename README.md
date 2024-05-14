@@ -18,7 +18,7 @@ A [rollup.js](https://rollupjs.org) plugin that inserts hash values based on the
 
 ## Why?
 
-Rollup's built-in [`[hash]`](https://rollupjs.org/configuration-options/#output-entryfilenames) naming option and various hash-related [plugins](https://github.com/phamann/rollup-plugin-hash) generate hash values based on the bundled output. This means bundles created from the same source using different configurations (output format, transpilation, minification, comments, etc.) will generate different hash values:
+Rollup's built-in [`[hash]`](https://rollupjs.org/configuration-options/#output-entryfilenames) naming option and various hash-related [plugins](https://github.com/phamann/rollup-plugin-hash) generate hash values based on the bundled output. This means bundles created from the same source that use different rollup configurations (output format, transpilation, minification, comments, etc.) will generate different hash values:
 
 ```shell
 # Node [hash] and other plugins
@@ -89,13 +89,13 @@ bundle-742cd4.js
 All [codePlaceholders](#codeplaceholder) will be replaced with the generated source hash:
 
 ```js
-// File: main.js
-const hash = 'My hash is __SOURCEHASH__';
+// Source: main.js
+const hash = '__SOURCEHASH__'; // Default
 ```
 
 ```js
-// File: bundle-742cd4.js
-const hash = 'My hash is 742cd4';
+// Bundle: bundle-742cd4.js
+const hash = '742cd4';
 ```
 
 ## Options
@@ -113,7 +113,7 @@ sourceHash({
 });
 ```
 
-The plugin will search for previous builds in the same output directory and match files based on the name pattern and the hash value length. For example, if a name pattern of `"bundle-[sourcehash].js"` is used to generate a new bundle named `bundle-742cd4.js`, all files that start with `bundle-`, are followed by an eight character alphanumeric value, and end with `.js` will be deleted.
+The plugin will search for previous builds in the same output directory and match files based on the name pattern and hash value length. For example, if a name pattern of `"bundle-[sourcehash].js"` is used to generate a new bundle named `bundle-742cd4.js`, all files that start with `bundle-`, are followed by an eight character alphanumeric value, and end with `.js` will be deleted.
 
 ```js
 // Rollup configuration
@@ -128,7 +128,7 @@ bundle-742cd4.js
 ```
 
 ```shell
-# These files will be deleted (match name pattern and hash length)
+# These files will be deleted
 bundle-ddc4fb.js
 bundle-8023f4.js
 bundle-c463f6.js
