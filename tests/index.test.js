@@ -1,6 +1,12 @@
 import assert from 'node:assert/strict';
-import { describe, it } from 'node:test';
-import { createBundle, escapeRegExp } from './helpers.js';
+import { afterEach, beforeEach, describe, it } from 'node:test';
+import {
+  createBundle,
+  createTempFiles,
+  eraseTempFiles,
+  escapeRegExp,
+  getTempFiles
+} from './helpers.js';
 import defaults from '../src/defaults.js';
 
 // Tests
@@ -60,5 +66,41 @@ describe('hash', async t => {
     });
 
     assert.strictEqual(sourceHash.length, 10);
+  });
+});
+
+describe('autoDelete', async t => {
+  beforeEach(async t => {
+    createTempFiles(['bundle-aaaaaa.js', 'bundle-bbbbbb.js', 'bundle-cccccc.js']);
+  });
+
+  afterEach(async t => {
+    eraseTempFiles();
+  });
+
+  it('ignores matching builds when false', async t => {
+    await createBundle(
+      {
+        autoDelete: false
+      },
+      true
+    );
+
+    const tempFiles = getTempFiles();
+
+    assert.strictEqual(tempFiles.length, 4);
+  });
+
+  it('deletes matching builds when true', async t => {
+    await createBundle(
+      {
+        autoDelete: true
+      },
+      true
+    );
+
+    const tempFiles = getTempFiles();
+
+    assert.strictEqual(tempFiles.length, 1);
   });
 });
