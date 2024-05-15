@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/jhildenbiddle/rollup-plugin-source-hash/blob/main/LICENSE)
 [![Sponsor this project](https://img.shields.io/static/v1?style=flat-square&label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/jhildenbiddle)
 
-A [rollup.js](https://rollupjs.org) plugin that inserts hash values based on the pre-bundled source code into a bundle's code and/or filename.
+A [rollup.js](https://rollupjs.org) plugin that inserts hash values based on pre-bundled source code into filenames and bundled code.
 
 ## Features
 
