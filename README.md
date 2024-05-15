@@ -49,7 +49,7 @@ const hash = '__SOURCEHASH__'; // Default
 
 ```js
 // Bundle output
-const hash = 'ddc4fb';
+const hash = '742cd4';
 ```
 
 ## Installation
